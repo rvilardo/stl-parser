@@ -10,12 +10,12 @@ import java.util.List;
  *
  */
 public class Report {
-	private String filepath;
+	private String filePath;
 	private List<Triangle> triangles = new ArrayList<>();
 	private double area;
 
-	public Report(String filepath) {
-		this.filepath = filepath;
+	public Report(String filePath) {
+		this.filePath = filePath;
 	}
 
 	/**
@@ -50,8 +50,8 @@ public class Report {
 	 * Returns the file path associated with the file parsed. 
 	 * @return String
 	 */
-	public String getFilepath() {
-		return filepath;
+	public String getFilePath() {
+		return filePath;
 	}
 
 }

@@ -2,7 +2,6 @@ package com.rvilardo.parser;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.StringTokenizer;
 
@@ -27,34 +26,32 @@ public class STLParser {
 	/**
 	 * Parses an text STL file.
 	 * 
-	 * @param filepath The file to parse
+	 * @param filePath The file to parse
 	 * @return A list of triangles with all triangles in the STL file.
 	 * 
-	 * @throws IOException
-	 * @throws IllegalArgumentException Thrown if the STL is not properly formatted
 	 */
-	public static Report parseSTLFile(Path filepath) throws IOException {
+	public static Report parseSTLFile(Path filePath) {
 		// Profiling...
 //		Instant start = Instant.now();
-//		Report r = readBuffered(filepath);
+//		Report r = readBuffered(filePath);
 //		Instant end = Instant.now();
 //		System.out.println(Duration.between(start, end));
 
-		return readBuffered(filepath);
+		return readBuffered(filePath);
 	}
 
 	/**
 	 * Reads a STL text file using <code>BufferedReader</code> technique in order to
 	 * extract a list of triangles.
 	 * 
-	 * @param filepath The file to parse
+	 * @param filePath The file to parse
 	 * @return A list of triangles representing all of the triangles in the STL
 	 *         file.
 	 */
-	static Report readBuffered(Path filepath) {
-		Report report = new Report(filepath.toString());
+	static Report readBuffered(Path filePath) {
+		Report report = new Report(filePath.toString());
 
-		try (BufferedReader br = new BufferedReader(new FileReader(filepath.toString()))) {
+		try (BufferedReader br = new BufferedReader(new FileReader(filePath.toString()))) {
 			Vector3[] vertices = new Vector3[3];
 			int v = 0;
 			String line;
