@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.StringTokenizer;
 
 import com.rvilardo.exception.NotVertexException;
@@ -36,11 +34,13 @@ public class STLParser {
 	 * @throws IllegalArgumentException Thrown if the STL is not properly formatted
 	 */
 	public static Report parseSTLFile(Path filepath) throws IOException {
-		Instant start = Instant.now();
-		Report r = readBuffered(filepath);
-		Instant end = Instant.now();
-		System.out.println(Duration.between(start, end));
-		return r;
+		// Profiling...
+//		Instant start = Instant.now();
+//		Report r = readBuffered(filepath);
+//		Instant end = Instant.now();
+//		System.out.println(Duration.between(start, end));
+
+		return readBuffered(filepath);
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class STLParser {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException("Parse failed.");
 		}
 		return report;
 	}
