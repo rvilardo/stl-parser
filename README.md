@@ -23,7 +23,7 @@ Build
 -----
  To build this project, just execute:
 ```
-maven package
+mvn package
 ```
  
  The command above will run all the unit tests/packaging tasks and will generate a JAR file in this location: 
