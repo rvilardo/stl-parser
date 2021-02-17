@@ -26,8 +26,8 @@ public class STLParser {
 	/**
 	 * Parses an text STL file.
 	 * 
-	 * @param filePath The file to parse
-	 * @return A list of triangles with all triangles in the STL file.
+	 * @param filePath The file path to parse
+	 * @return A report object containing the collected data after parsing
 	 * 
 	 */
 	public static Report parseSTLFile(Path filePath) {
@@ -42,11 +42,10 @@ public class STLParser {
 
 	/**
 	 * Reads a STL text file using <code>BufferedReader</code> technique in order to
-	 * extract a list of triangles.
+	 * extract a list of triangles and surface area.
 	 * 
 	 * @param filePath The file to parse
-	 * @return A list of triangles representing all of the triangles in the STL
-	 *         file.
+	 * @return A report object containing the collected data after parsing
 	 */
 	static Report readBuffered(Path filePath) {
 		Report report = new Report(filePath.toString());
